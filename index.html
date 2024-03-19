@@ -4,95 +4,112 @@
 <div>TASK 4: <span id="ts4"></span></div>
 
 <script>
-    const products = [
+  const products = [
     {
-        name: "T-shirt",
-        variants: [
-            {
-                title: "red",
-                price: 10
-            },
-            {
-                title: "green",
-                price: 10
-            }, {
-                title: "blue",
-                price: 10
-            }
-        ],
-        stock: 20,
+      name: "T-shirt",
+      variants: [
+        {
+          title: "red",
+          price: 10,
+        },
+        {
+          title: "green",
+          price: 10,
+        },
+        {
+          title: "blue",
+          price: 10,
+        },
+      ],
+      stock: 20,
     },
     {
-        name: "Jeans",
-        variants: [
-            {
-                title: "s",
-                price: 50
-            },
-            {
-                title: "m",
-                price: 50
-            }, {
-                title: "l",
-                price: 60
-            }
-        ],
-        stock: 3,
+      name: "Jeans",
+      variants: [
+        {
+          title: "s",
+          price: 50,
+        },
+        {
+          title: "m",
+          price: 50,
+        },
+        {
+          title: "l",
+          price: 60,
+        },
+      ],
+      stock: 3,
     },
     {
-        name: "Cap",
-        variants: [
-            {
-                title: "red",
-                price: 22
-            },
-            {
-                title: "green",
-                price: 22
-            }, {
-                title: "blue",
-                price: 22
-            }
-        ],
-        stock: 15,
-    }
-]
+      name: "Cap",
+      variants: [
+        {
+          title: "red",
+          price: 22,
+        },
+        {
+          title: "green",
+          price: 22,
+        },
+        {
+          title: "blue",
+          price: 22,
+        },
+      ],
+      stock: 15,
+    },
+  ];
 
+  // 1. Total Price of all products
+  // Output: 256
+  const task1 = () => {
+    let sum = 0;
+    products.forEach((group) => {
+      group.variants.forEach((item) => {
+        sum += item?.price;
+      });
+    });
 
-// 1. Total Price of all products
-// Output: 256
-const task1 = () => {
-    return "";
-}
+    return sum;
+  };
 
-// 2. Stock information only
-// Output:
-// [
-//     { name: "T-shirt", stock: 20 }, { name: "Jeans", stock: 3 }, { name: "Cap", stock: 15 }
-// ]
+  // 2. Stock information only
+  // Output:
+  // [
+  //     { name: "T-shirt", stock: 20 }, { name: "Jeans", stock: 3 }, { name: "Cap", stock: 15 }
+  // ]
 
-const task2 = () => {
-    return "";
-}
+  const task2 = () => {
+    let ArrayofStock = [];
+    products.forEach((group) => {
+      ArrayofStock.push({ name: group.name, stock: group?.stock });
+    });
+    console.log(ArrayofStock);
+    return ArrayofStock;
+  };
 
+  // 3. All products
+  // Output:
+  // ["T-shirt", "Jeans", "Cap"]
 
-// 3. All products
-// Output:
-// ["T-shirt", "Jeans", "Cap"]
+  const task3 = () => {
+    return products?.map((item, i) => {
+      return item?.name;
+    });
+  };
 
-const task3 = () => {
-    return "";
-}
+  // 4. T shirt green price
+  // Output: 10
 
-// 4. T shirt green price
-// Output: 10
+  const task4 = () => {
+    const findElement = products.find((item, i) => item?.name == "T-shirt");
 
-const task4 = () => {
-    return "";
-}
+    return findElement.variants.find((item, i) => item.title == "green").price;
+  };
 
-document.querySelector("#ts1").innerHTML = task1();
-document.querySelector("#ts2").innerHTML = task2();
-document.querySelector("#ts3").innerHTML = task3();
-document.querySelector("#ts4").innerHTML = task4();
+  document.querySelector("#ts1").innerHTML = task1();
+  document.querySelector("#ts2").innerHTML = task2();
+  document.querySelector("#ts3").innerHTML = task3();
+  document.querySelector("#ts4").innerHTML = task4();
 </script>
